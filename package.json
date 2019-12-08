@@ -38,7 +38,7 @@
     "koa": "2.5.2",
     "request": "2.87.0",
     "request-promise-native": "1.0.7",
-    "require-all": "2.2.0",
+    "require-all": "3.0.0",
     "sharp": "0.22.1",
     "tmp": "0.0.33",
     "trace-redirect": "1.0.6"
