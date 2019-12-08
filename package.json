@@ -35,7 +35,7 @@
     "file-type": "10.9.0",
     "html-entities": "1.2.1",
     "is-svg": "4.0.0",
-    "koa": "2.5.2",
+    "koa": "2.11.0",
     "request": "2.87.0",
     "request-promise-native": "1.0.7",
     "require-all": "2.2.0",
