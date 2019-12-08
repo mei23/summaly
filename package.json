@@ -40,7 +40,7 @@
     "request-promise-native": "1.0.7",
     "require-all": "2.2.0",
     "sharp": "0.22.1",
-    "tmp": "0.0.33",
+    "tmp": "0.1.0",
     "trace-redirect": "1.0.6"
   }
 }
