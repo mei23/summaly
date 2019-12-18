@@ -22,7 +22,7 @@
     "@types/html-entities": "1.2.16",
     "@types/mocha": "5.2.7",
     "@types/node": "12.12.20",
-    "@types/request": "2.48.3",
+    "@types/request": "2.48.4",
     "@types/request-promise-native": "1.0.17",
     "express": "4.17.1",
     "mocha": "6.2.2",
