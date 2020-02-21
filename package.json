@@ -24,7 +24,7 @@
     "@types/request": "2.48.4",
     "@types/request-promise-native": "1.0.17",
     "express": "4.17.1",
-    "typescript": "3.7.5"
+    "typescript": "3.8.2"
   },
   "dependencies": {
     "cheerio-httpcli": "0.7.4",
