@@ -38,7 +38,7 @@
     "request": "2.88.2",
     "request-promise-native": "1.0.8",
     "require-all": "3.0.0",
-    "sharp": "0.25.1",
+    "sharp": "0.25.2",
     "tmp": "0.1.0",
     "trace-redirect": "1.0.6"
   }
