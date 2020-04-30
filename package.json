@@ -37,7 +37,7 @@
     "probe-image-size": "^5.0.0",
     "require-all": "3.0.0",
     "sharp": "0.25.2",
-    "tmp": "0.1.0",
+    "tmp": "0.2.1",
     "trace-redirect": "1.0.6"
   }
 }
