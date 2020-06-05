@@ -22,7 +22,7 @@
     "@types/html-entities": "1.2.16",
     "@types/node": "14.0.5",
     "express": "4.17.1",
-    "typescript": "3.9.3"
+    "typescript": "3.9.5"
   },
   "dependencies": {
     "@types/node-fetch": "^2.5.5",
