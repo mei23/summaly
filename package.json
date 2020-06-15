@@ -36,7 +36,7 @@
     "node-fetch": "^2.6.0",
     "probe-image-size": "^5.0.0",
     "require-all": "3.0.0",
-    "sharp": "0.25.3",
+    "sharp": "0.25.4",
     "tmp": "0.2.1",
     "trace-redirect": "1.0.6"
   }
