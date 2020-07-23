@@ -1,6 +1,4 @@
-import { resolve, parse } from 'url';
-import fetch from 'node-fetch';
-import { httpAgent, httpsAgent } from './utils/agent';
+import { resolve } from 'url';
 import clip from './utils/clip';
 import cleanupTitle from './utils/cleanup-title';
 
@@ -93,7 +91,7 @@ export default async (url: URL): Promise<Summary> => {
 		$('link[rel="icon"]').attr('href') ||
 		'/favicon.ico';
 
-	const icon = await findFavicon(favicon, url);
+	const icon = favicon ? resolve(url.href, favicon) : null;
 
 	const sensitive = $('.tweet').attr('data-possibly-sensitive') === 'true';
 
@@ -118,46 +116,3 @@ export default async (url: URL): Promise<Summary> => {
 		sensitive,
 	};
 };
-
-async function findFavicon(favicon: string, url: URL) {
-	// 絶対URLはリモート解決しない
-	if (favicon?.match(/^https?:/)) return favicon;
-
-	const find = async (path: string) => {
-		const target = resolve(url.href, path);
-		return await fetch(url, {
-			method: 'get',
-			headers: {
-				Range: `bytes=0-1023`
-			},
-			timeout: 10 * 1000,
-			agent: u => u.protocol == 'http:' ? httpAgent : httpsAgent
-		})
-		.then(res => {
-			if (res.status >= 200 && res.status < 300) return target;
-			return null;
-		})
-		.catch(() => null);
-	};
-
-	// 相対的なURL (ex. test) を絶対的 (ex. /test) に変換
-	const toAbsolute = (relativeURLString: string): string => {
-		const relativeURL = parse(relativeURLString);
-		const isAbsolute = relativeURL.slashes || relativeURL.path?.startsWith('/');
-
-		// 既に絶対的なら、即座に値を返却
-		if (isAbsolute) {
-			return relativeURLString;
-		}
-
-		// スラッシュを付けて返却
-		return '/' + relativeURLString;
-	};
-
-	const icon = await find(favicon) ||
-		// 相対指定を絶対指定に変換し再試行
-		await find(toAbsolute(favicon)) ||
-		null;
-
-	return icon;
-}
