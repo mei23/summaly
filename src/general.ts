@@ -111,8 +111,8 @@ export default async (url: URL): Promise<Summary> => {
 		thumbnail: image,
 		player: {
 			url: playerUrl,
-			width: playerWidth,	// TODO: NaNかもしれない
-			height: playerHeight
+			width: Number.isNaN(playerWidth) ? null : playerWidth,
+			height: Number.isNaN(playerHeight) ? null : playerHeight
 		},
 		sitename: siteName,
 		sensitive,
