@@ -28,17 +28,12 @@
   "dependencies": {
     "@koa/cors": "^3.1.0",
     "@types/node-fetch": "^2.5.5",
-    "abort-controller": "^3.0.0",
     "cheerio-httpcli": "0.8.1",
     "debug": "4.1.1",
     "escape-regexp": "0.0.1",
-    "file-type": "14.6.2",
     "html-entities": "1.3.1",
-    "is-svg": "4.2.1",
     "koa": "2.13.0",
     "node-fetch": "^2.6.0",
-    "probe-image-size": "^5.0.0",
-    "sharp": "0.25.4",
     "tmp": "0.2.1"
   }
 }
