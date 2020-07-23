@@ -1,10 +1,17 @@
 import Summary from './summary';
 import general from './general';
 
+type Result = Summary & {
+	/**
+	 * The actual url of that web page
+	 */
+	url: string;
+};
+
 /**
  * Summarize an web page
  */
-export default async (url: string): Promise<Summary> => {
+export default async (url: string): Promise<Result> => {
 	const _url = new URL(url);
 
 	// Get summary
@@ -14,5 +21,7 @@ export default async (url: string): Promise<Summary> => {
 		throw 'failed summarize';
 	}
 
-	return summary;
+	return Object.assign(summary, {
+		url
+	});
 };
