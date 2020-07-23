@@ -1,9 +1,5 @@
-import nullOrEmpty from './null-or-empty';
-
-export default function(s: string, max: number): string {
-	if (nullOrEmpty(s)) {
-		return s;
-	}
+export default function(s: string | null | undefined, max: number): string | null | undefined {
+	if (s == null) return s;
 
 	s = s.trim();
 

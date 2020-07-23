@@ -2,22 +2,22 @@ type Summary = {
 	/**
 	 * The description of that web page
 	 */
-	description: string;
+	description: string | null;
 
 	/**
 	 * The url of the icon of that web page
 	 */
-	icon: string;
+	icon: string | null;
 
 	/**
 	 * The name of site of that web page
 	 */
-	sitename: string;
+	sitename: string | null;
 
 	/**
 	 * The url of the thumbnail of that web page
 	 */
-	thumbnail: string;
+	thumbnail: string | null;
 
 	/**
 	 * The player of that web page
@@ -27,7 +27,7 @@ type Summary = {
 	/**
 	 * The title of that web page
 	 */
-	title: string;
+	title: string | null;
 
 	/**
 	 * Possibly sensitive
@@ -41,15 +41,15 @@ export type Player = {
 	/**
 	 * The url of the player
 	 */
-	url: string;
+	url: string | null;
 
 	/**
 	 * The width of the player
 	 */
-	width: number;
+	width: number | null;
 
 	/**
 	 * The height of the player
 	 */
-	height: number;
+	height: number | null;
 };
