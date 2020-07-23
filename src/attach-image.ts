@@ -1,11 +1,17 @@
 import * as tmp from 'tmp';
 import * as fs from 'fs';
+import * as stream from 'stream';
+import * as util from 'util';
 import fetch from 'node-fetch';
 import Summary from './summary';
 import * as fileType from 'file-type';
 import isSvg from 'is-svg';
 import { ConvertToJpeg } from './utils/image-processor';
 import { httpAgent, httpsAgent } from './utils/agent';
+import { AbortController } from 'abort-controller';
+
+const pipeline = util.promisify(stream.pipeline);
+
 const probeImageSize = require('probe-image-size');
 
 export async function attachImage(summary: Summary) {
@@ -43,8 +49,14 @@ async function convertUrl(url: string) {
 }
 
 async function fetchUrl(url: string, path: string) {
+	const controller = new AbortController();
+	setTimeout(() => {
+		controller.abort();
+	}, 30 * 1000);
+
 	const response = await fetch(url, {
 			timeout: 30 * 1000,
+			signal: controller.signal,
 			agent: u => u.protocol == 'http:' ? httpAgent : httpsAgent,
 		}).then(response => {
 		if (!response.ok) {
@@ -54,24 +66,7 @@ async function fetchUrl(url: string, path: string) {
 		}
 	});
 
-	await new Promise((res, rej) => {
-		const writable = fs.createWriteStream(path);
-
-		response.body.on('error', (error: any) => {
-			writable.close();
-			rej(error);
-		});
-
-		writable.on('finish', () => {
-			res();
-		});
-
-		writable.on('error', error => {
-			rej(error);
-		});
-
-		response.body.pipe(writable);
-	});
+	await pipeline(response.body, fs.createWriteStream(path));
 }
 
 export async function detectMine(path: string) {
