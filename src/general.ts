@@ -10,14 +10,8 @@ const entities = new AllHtmlEntities();
 import Summary from './summary';
 import { createInstance } from './client';
 
-export default async (url: URL, lang: string = null): Promise<Summary> => {
-	if (lang && !lang.match(/^[\w-]+(\s*,\s*[\w-]+)*$/)) lang = null;
-
+export default async (url: URL): Promise<Summary> => {
 	const client = createInstance();
-
-	client.set('headers', {
-		'Accept-Language': lang
-	});
 
 	const res = await client.fetch(url.href).catch((e: any) => {
 		throw `${e.statusCode || e.message}`;

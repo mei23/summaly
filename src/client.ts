@@ -1,8 +1,7 @@
-import { version } from '../package.json';
 import * as client from 'cheerio-httpcli';
 
 client.set('headers', {
-	'User-Agent': `SummalyBot/${version}`
+	'User-Agent': `SummalyBot`
 });
 client.set('referer', false);
 client.set('timeout', 20000);

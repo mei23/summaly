@@ -16,10 +16,7 @@ app.use(async ctx => {
 	}
 
 	try {
-		const summary = await summaly(ctx.query.url, {
-			lang: ctx.query.lang,
-			followRedirects: false
-		});
+		const summary = await summaly(ctx.query.url);
 
 		ctx.body = summary;
 		ctx.set('Cache-Control', 'public, max-age=604800');
