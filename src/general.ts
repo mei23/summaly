@@ -134,7 +134,7 @@ async function findFavicon(favicon: string, url: URL) {
 			agent: u => u.protocol == 'http:' ? httpAgent : httpsAgent
 		})
 		.then(res => {
-			if (res.status === 200) return target;
+			if (res.status >= 200 && res.status < 300) return target;
 			return null;
 		})
 		.catch(() => null);
