@@ -33,6 +33,11 @@ type Summary = {
 	 * Possibly sensitive
 	 */
 	sensitive?: boolean;
+
+	/**
+	 * 最終リダイレクト先URL
+	 */
+	url?: string;
 };
 
 export default Summary;
