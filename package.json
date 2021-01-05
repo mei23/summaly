@@ -38,7 +38,7 @@
     "html-entities": "1.4.0",
     "is-svg": "4.2.1",
     "js-yaml": "^3.14.0",
-    "koa": "2.13.0",
+    "koa": "2.13.1",
     "node-fetch": "^2.6.1",
     "probe-image-size": "^6.0.0",
     "require-all": "3.0.0",
