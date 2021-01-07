@@ -29,7 +29,7 @@
     "@types/js-yaml": "^3.12.5",
     "@types/node": "14.14.20",
     "@types/node-fetch": "^2.5.5",
-    "@types/sharp": "^0.26.0",
+    "@types/sharp": "^0.27.1",
     "abort-controller": "^3.0.0",
     "cheerio-httpcli": "0.8.1",
     "debug": "4.3.1",
