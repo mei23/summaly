@@ -35,7 +35,7 @@
     "debug": "4.3.1",
     "escape-regexp": "0.0.1",
     "file-type": "16.1.0",
-    "html-entities": "1.4.0",
+    "html-entities": "2.0.4",
     "is-svg": "4.2.1",
     "js-yaml": "^3.14.0",
     "koa": "2.13.1",
