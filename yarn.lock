@@ -870,10 +870,10 @@ html-comment-regex@^1.1.2:
   resolved "https://registry.yarnpkg.com/html-comment-regex/-/html-comment-regex-1.1.2.tgz#97d4688aeb5c81886a364faa0cad1dda14d433a7"
   integrity sha512-P+M65QY2JQ5Y0G9KKdlDpo0zK+/OHptU5AaBwUfAIDJZk1MYf32Frm84EcOytfJE0t5JvkAnKlmjsXDnWzCJmQ==
 
-html-entities@1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/html-entities/-/html-entities-1.4.0.tgz#cfbd1b01d2afaf9adca1b10ae7dffab98c71d2dc"
-  integrity sha512-8nxjcBcd8wovbeKx7h3wTji4e6+rhaVuPNpMqwWgnHh+N9ToqsCs6XztWRBPQ+UtzsoMAdKZtUENoVzU/EMtZA==
+html-entities@2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/html-entities/-/html-entities-2.1.0.tgz#f5de1f8d5e1f16859a74aa73a90f0db502ca723a"
+  integrity sha512-u+OHVGMH5P1HlaTFp3M4HolRnWepgx5rAnYBo+7/TrBZahuJjgQ4TMv2GjQ4IouGDzkgXYeOI/NQuF95VOUOsQ==
 
 htmlparser2@^3.9.1:
   version "3.10.1"
