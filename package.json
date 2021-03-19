@@ -38,7 +38,7 @@
 		"is-svg": "4.2.1",
 		"js-yaml": "^3.14.1",
 		"node-fetch": "^2.6.1",
-		"probe-image-size": "^6.0.0",
+		"probe-image-size": "^7.0.1",
 		"require-all": "3.0.0",
 		"sharp": "0.27.2",
 		"tmp": "0.2.1",
