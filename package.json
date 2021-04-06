@@ -40,7 +40,7 @@
 		"node-fetch": "^2.6.1",
 		"probe-image-size": "^7.0.1",
 		"require-all": "3.0.0",
-		"sharp": "0.27.2",
+		"sharp": "0.28.1",
 		"tmp": "0.2.1",
 		"typescript": "4.2.3"
 	}
