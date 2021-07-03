@@ -678,10 +678,10 @@ fast-xml-parser@^3.19.0:
   resolved "https://registry.yarnpkg.com/fast-xml-parser/-/fast-xml-parser-3.19.0.tgz#cb637ec3f3999f51406dd8ff0e6fc4d83e520d01"
   integrity sha512-4pXwmBplsCPv8FOY1WRakF970TjNGnGnfbOnLqjlYvMiF1SR3yOHyxMR/YCXpPTOspNF5gwudqktIP4VsWkvBg==
 
-fastify-cors@5.2.0:
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/fastify-cors/-/fastify-cors-5.2.0.tgz#a92af64d9b7df1cd736c90ecd894a7b23c0cd75a"
-  integrity sha512-Lde71qT23M3Ip3pmny3uN6q6lQ4J5J0/YWoqe2stL4sMT99R5LEtTJ2La2zijFOR5OFhxvxqGgR7BIc2x3amPg==
+fastify-cors@6.0.1:
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/fastify-cors/-/fastify-cors-6.0.1.tgz#300e0f1cbeedda19d9de284e9cf05c65842c182b"
+  integrity sha512-eeNTdQNmBsqHL87we+X74n9+H0hTDX0cXGVdyZjGf9om2pZfigAZwuSxaUUE2pLP9tp5+rEd5kejKQ8+ZCvAoA==
   dependencies:
     fastify-plugin "^3.0.0"
     vary "^1.1.2"
