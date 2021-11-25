@@ -35,7 +35,7 @@
 		"fastify-cors": "6.0.2",
 		"file-type": "16.5.3",
 		"html-entities": "2.3.2",
-		"is-svg": "4.3.1",
+		"is-svg": "4.3.2",
 		"js-yaml": "4.1.0",
 		"node-fetch": "2.6.1",
 		"probe-image-size": "7.2.2",
