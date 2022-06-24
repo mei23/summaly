@@ -34,7 +34,7 @@
 		"fastify-cors": "6.0.3",
 		"file-type": "16.5.3",
 		"got": "11.8.5",
-		"html-entities": "2.3.2",
+		"html-entities": "2.3.3",
 		"js-yaml": "4.1.0",
 		"jschardet": "3.0.0",
 		"private-ip": "2.3.3",
