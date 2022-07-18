@@ -2,7 +2,6 @@ import { getJson } from '../utils/got';
 import { Summaly } from '../summaly';
 
 export function test(url: URL): boolean {
-	console.dir(url);
 	return /^twitter[.]com$/.test(url.hostname)
 		&& /^[/]\w+[/]status[/](\d+)/.test(url.pathname);
 }
