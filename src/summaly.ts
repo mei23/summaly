@@ -22,6 +22,8 @@ export type Summaly = {
 
 	/** 最終リダイレクト先URL */
 	url: string;
+
+	medias?: string[];
 };
 
 export type SummalyEx = Summaly & {

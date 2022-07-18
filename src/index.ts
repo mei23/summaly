@@ -56,23 +56,23 @@ export default async (url: string, options?: Options): Promise<Summaly> => {
 
 	const _url = new URL(url);
 
-	// Get summary
-	let summary = await general(_url, opts.lang);
+	// pre
+	const preMatch = plugins.filter(plugin => plugin.test(_url))[0];
 
-	if (summary == null) {
-		throw 'failed summarize';
+	if (preMatch && preMatch.process) {
+		const summary = await preMatch.process(_url);
+		if (summary == null) throw 'failed summarize';
+		if (opts.attachImage) await attachImage(summary);
+		return summary;
+	} else {
+		let summary = await general(_url, opts.lang);
+		if (summary == null) throw 'failed summarize';
+		const landingUrl = summary.url;
+		const match = plugins.filter(plugin => plugin.test(new URL(landingUrl)))[0];
+		if (match && match.postProcess) {
+			summary = await match.postProcess(summary);
+		}
+		if (opts.attachImage) await attachImage(summary);
+		return StripEx(summary);
 	}
-
-	const landingUrl = summary.url;
-
-	// Find matching plugin
-	const match = plugins.filter(plugin => plugin.test(new URL(landingUrl)))[0];
-
-	if (match) {
-		summary = await match.postProcess(summary);
-	}
-
-	if (opts.attachImage) await attachImage(summary);
-
-	return StripEx(summary);
 };
