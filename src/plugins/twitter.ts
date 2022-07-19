@@ -24,7 +24,7 @@ export async function process(url: URL): Promise<Summaly> {
 			height: null,
 		},
 		title: `${j.user?.name} on Twitter`,
-		sensitive: !!j.possibly_sensitive,
+		sensitive: j.possibly_sensitive,
 		url: url.href,
 		medias: j.photos?.map(x => x.url as string) || undefined,
 	};
