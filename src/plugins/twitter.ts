@@ -2,7 +2,7 @@ import { getJson } from '../utils/got';
 import { Summaly } from '../summaly';
 
 export function test(url: URL): boolean {
-	return /^twitter[.]com$/.test(url.hostname)
+	return /^twitter\.com$/.test(url.hostname)
 		&& /^[/]\w+[/]status[/](\d+)/.test(url.pathname);
 }
 
@@ -17,7 +17,7 @@ export async function process(url: URL): Promise<Summaly> {
 		description: j.text || '',
 		icon: 'https://abs.twimg.com/favicons/twitter.2.ico',
 		sitename: 'Twitter',
-		thumbnail: j.photos?.[0]?.url || j.user?.profile_image_url_https || null,
+		thumbnail: j.photos?.[0]?.url || (j.user?.profile_image_url_https ? j.user?.profile_image_url_https.replace(/_normal\./, '.') : null) || null,
 		player: {
 			url: null,
 			width: null,
