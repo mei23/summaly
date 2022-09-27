@@ -33,7 +33,7 @@
 		"fastify": "3.27.4",
 		"fastify-cors": "6.0.3",
 		"file-type": "16.5.3",
-		"got": "11.8.5",
+		"got": "12.5.1",
 		"html-entities": "2.3.2",
 		"js-yaml": "4.1.0",
 		"jschardet": "3.0.0",
