@@ -36,7 +36,7 @@
 		"html-entities": "2.3.3",
 		"js-yaml": "4.1.0",
 		"jschardet": "3.0.0",
-		"private-ip": "2.3.4",
+		"private-ip": "3.0.0",
 		"probe-image-size": "7.2.3",
 		"require-all": "3.0.0",
 		"sharp": "0.29.3",
