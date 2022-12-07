@@ -32,10 +32,10 @@
     chalk "^2.0.0"
     js-tokens "^4.0.0"
 
-"@sinclair/typebox@^0.24.44":
-  version "0.24.51"
-  resolved "https://registry.yarnpkg.com/@sinclair/typebox/-/typebox-0.24.51.tgz#645f33fe4e02defe26f2f5c0410e1c094eac7f5f"
-  integrity sha512-1P1OROm/rdubP5aFDSZQILU0vrLCJ4fvHt6EoqHEM+2D/G5MK3bIaymUKLit8Js9gbns5UyJnkP/TZROLw4tUA==
+"@sinclair/typebox@^0.25.8":
+  version "0.25.11"
+  resolved "https://registry.yarnpkg.com/@sinclair/typebox/-/typebox-0.25.11.tgz#476bad310092de48af7a9807ecd75019ac01f3d7"
+  integrity sha512-GgUJN0Drvh74i8gOl2S8SkHuAgkZJtzzd6EmfBVxpNDB6QmzXdZ3tyUt02Kr42X58as5I187CKiWpLCMJmdLbw==
 
 "@sindresorhus/is@^4.0.0":
   version "4.6.0"
@@ -119,10 +119,17 @@
   dependencies:
     "@types/node" "*"
 
-ajv@^8.11.0:
-  version "8.11.0"
-  resolved "https://registry.yarnpkg.com/ajv/-/ajv-8.11.0.tgz#977e91dd96ca669f54a11e23e378e33b884a565f"
-  integrity sha512-wGgprdCvMalC0BztXvitD2hC04YffAvtsUn93JbGXYLAtCUO4xd17mCCZQxUOItiBwZvJScWo8NIvQMQ71rdpg==
+ajv-formats@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/ajv-formats/-/ajv-formats-2.1.1.tgz#6e669400659eb74973bbf2e33327180a0996b520"
+  integrity sha512-Wx0Kx52hxE7C18hkMEggYlEifqWZtYaRgouJor+WMdPnQyEK13vgEWyVNup7SoeeoLMsr4kf5h6dOW11I15MUA==
+  dependencies:
+    ajv "^8.0.0"
+
+ajv@^8.0.0, ajv@^8.11.0:
+  version "8.11.2"
+  resolved "https://registry.yarnpkg.com/ajv/-/ajv-8.11.2.tgz#aecb20b50607acf2569b6382167b65a96008bb78"
+  integrity sha512-E4bfmKAhGiSTvMfL1Myyycaub+cUEU2/IvpylXkUu7CHBkBj1f/ikdzbD7YQ6FKUbixDxeYvB/xY4fvyroDlQg==
   dependencies:
     fast-deep-equal "^3.1.1"
     json-schema-traverse "^1.0.0"
@@ -600,15 +607,16 @@ got@11.8.5:
     p-cancelable "^2.0.0"
     responselike "^2.0.0"
 
-h3-typebox@0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/h3-typebox/-/h3-typebox-0.4.0.tgz#b7529a37005931cb4bd0ae355c87c798cba0f07d"
-  integrity sha512-I6TIqLPpIOdBfhVDvzJzXozCwXsxBzmKgQv7jGHAaB/Ktx+RbrV+summ1+a1usdVKaQ9AeKQafT7B1x6764oaw==
+h3-typebox@0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/h3-typebox/-/h3-typebox-0.5.0.tgz#40e1accd715414552068cfa1f7959600a720528e"
+  integrity sha512-BhT34uoW+94cdLCJPXlr22okayqoPBHiLakRW8ZPzBa4cG+0Sdqs8jNthrz1dQLDtgz7kbeOtd9g9Z6fbfhrKQ==
   dependencies:
     "@apideck/better-ajv-errors" "^0.3.6"
-    "@sinclair/typebox" "^0.24.44"
+    "@sinclair/typebox" "^0.25.8"
     ajv "^8.11.0"
-    h3 "^0.8.5"
+    ajv-formats "^2.1.1"
+    h3 "^0.8.6"
 
 h3@1.0.1:
   version "1.0.1"
@@ -620,7 +628,7 @@ h3@1.0.1:
     radix3 "^1.0.0"
     ufo "^1.0.0"
 
-h3@^0.8.5:
+h3@^0.8.6:
   version "0.8.6"
   resolved "https://registry.yarnpkg.com/h3/-/h3-0.8.6.tgz#8095ef998fe14769b87170b7c8b68ba9c54973d5"
   integrity sha512-CSWNOKa3QGo67rFU2PhbFTp0uPJtilNji2Z0pMiSRQt3+OkIW0u3E1WMJqIycLqaTgb9JyFqH/S4mcTyyGtvyQ==
