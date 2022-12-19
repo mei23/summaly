@@ -24,7 +24,7 @@
 		"@types/cheerio": "0.22.18",
 		"@types/debug": "4.1.7",
 		"@types/js-yaml": "4.0.5",
-		"@types/node": "18.11.12",
+		"@types/node": "18.11.17",
 		"@types/sharp": "0.30.0",
 		"cheerio": "0.22.0",
 		"debug": "4.3.4",
