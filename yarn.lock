@@ -32,10 +32,10 @@
     chalk "^2.0.0"
     js-tokens "^4.0.0"
 
-"@sinclair/typebox@^0.25.8":
-  version "0.25.11"
-  resolved "https://registry.yarnpkg.com/@sinclair/typebox/-/typebox-0.25.11.tgz#476bad310092de48af7a9807ecd75019ac01f3d7"
-  integrity sha512-GgUJN0Drvh74i8gOl2S8SkHuAgkZJtzzd6EmfBVxpNDB6QmzXdZ3tyUt02Kr42X58as5I187CKiWpLCMJmdLbw==
+"@sinclair/typebox@^0.25.13":
+  version "0.25.16"
+  resolved "https://registry.yarnpkg.com/@sinclair/typebox/-/typebox-0.25.16.tgz#daf07d14d93897d6f7849159d8242808b956b069"
+  integrity sha512-5sclbtYBKQ0W5hY8ovF/cBbQV+FWBZArd738hQpLgWUdlWyuOA0HOuYN178jUJRz0pXuL1+UYR+LCMvoR47osg==
 
 "@sindresorhus/is@^4.0.0":
   version "4.6.0"
@@ -126,7 +126,7 @@ ajv-formats@^2.1.1:
   dependencies:
     ajv "^8.0.0"
 
-ajv@^8.0.0, ajv@^8.11.0:
+ajv@^8.0.0, ajv@^8.11.2:
   version "8.11.2"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-8.11.2.tgz#aecb20b50607acf2569b6382167b65a96008bb78"
   integrity sha512-E4bfmKAhGiSTvMfL1Myyycaub+cUEU2/IvpylXkUu7CHBkBj1f/ikdzbD7YQ6FKUbixDxeYvB/xY4fvyroDlQg==
@@ -412,7 +412,7 @@ delegates@^1.0.0:
   resolved "https://registry.yarnpkg.com/delegates/-/delegates-1.0.0.tgz#84c6e159b81904fdca59a0ef44cd870d31250f9a"
   integrity sha1-hMbhWbgZBP3KWaDvRM2HDTElD5o=
 
-destr@^1.2.0, destr@^1.2.2:
+destr@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/destr/-/destr-1.2.2.tgz#7ba9befcafb645a50e76b260449c63927b51e22f"
   integrity sha512-lrbCJwD9saUQrqUfXvl6qoM+QN3W7tLV5pAOs+OqOmopCCz/JkE05MHedJR1xfk4IAnZuJXPVuN5+7jNA2ZCiA==
@@ -607,18 +607,18 @@ got@11.8.6:
     p-cancelable "^2.0.0"
     responselike "^2.0.0"
 
-h3-typebox@0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/h3-typebox/-/h3-typebox-0.5.0.tgz#40e1accd715414552068cfa1f7959600a720528e"
-  integrity sha512-BhT34uoW+94cdLCJPXlr22okayqoPBHiLakRW8ZPzBa4cG+0Sdqs8jNthrz1dQLDtgz7kbeOtd9g9Z6fbfhrKQ==
+h3-typebox@0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/h3-typebox/-/h3-typebox-0.6.0.tgz#54d5ab96c3fc07b5ea6fa3c3825d4c87feedb4f4"
+  integrity sha512-GFQwo043+8bQA4e0tHcc5DWwgS9r5wiGd4pEzOKdcTjRhAnJz/Ryfz1bjkRVbmqZVXaDuvUrPWWBxTVrfpfSzg==
   dependencies:
     "@apideck/better-ajv-errors" "^0.3.6"
-    "@sinclair/typebox" "^0.25.8"
-    ajv "^8.11.0"
+    "@sinclair/typebox" "^0.25.13"
+    ajv "^8.11.2"
     ajv-formats "^2.1.1"
-    h3 "^0.8.6"
+    h3 "^1.0.2"
 
-h3@1.0.2:
+h3@1.0.2, h3@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/h3/-/h3-1.0.2.tgz#3a2992921a62de697bd4a3f449401f7600116df6"
   integrity sha512-25QqjQMz8pX1NI2rZ/ziNT9B8Aog7jmu2a0o8Qm9kKoH3zOhE+2icVs069h6DEp0g1Dst1+zKfRdRYcK0MogJA==
@@ -627,16 +627,6 @@ h3@1.0.2:
     destr "^1.2.2"
     radix3 "^1.0.0"
     ufo "^1.0.1"
-
-h3@^0.8.6:
-  version "0.8.6"
-  resolved "https://registry.yarnpkg.com/h3/-/h3-0.8.6.tgz#8095ef998fe14769b87170b7c8b68ba9c54973d5"
-  integrity sha512-CSWNOKa3QGo67rFU2PhbFTp0uPJtilNji2Z0pMiSRQt3+OkIW0u3E1WMJqIycLqaTgb9JyFqH/S4mcTyyGtvyQ==
-  dependencies:
-    cookie-es "^0.5.0"
-    destr "^1.2.0"
-    radix3 "^0.2.1"
-    ufo "^0.8.6"
 
 has-flag@^3.0.0:
   version "3.0.0"
@@ -1095,11 +1085,6 @@ quick-lru@^5.1.1:
   resolved "https://registry.yarnpkg.com/quick-lru/-/quick-lru-5.1.1.tgz#366493e6b3e42a3a6885e2e99d18f80fb7a8c932"
   integrity sha512-WuyALRjWPDGtt/wzJiadO5AXY+8hZ80hVpe6MyivgraREW751X3SbhRvG3eLKOYN+8VEvqLcf3wdnt44Z4S4SA==
 
-radix3@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/radix3/-/radix3-0.2.1.tgz#77e66a41c7ba5600a8bc137fd259ef661d314418"
-  integrity sha512-FnhArTl5Tq7dodiLeSPKrDUyCQuJqEncP8cKdyy399g8F/cz7GH6FmzA3Rkosu2IZMkpswFFwXfb2ERSiL06pg==
-
 radix3@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/radix3/-/radix3-1.0.0.tgz#d1c760b850206a6bd5dfd26820c25903cb20eccc"
@@ -1420,11 +1405,6 @@ typescript@4.9.4:
   version "4.9.4"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.9.4.tgz#a2a3d2756c079abda241d75f149df9d561091e78"
   integrity sha512-Uz+dTXYzxXXbsFpM86Wh3dKCxrQqUcVMxwU54orwlJjOpO3ao8L7j5lH+dWfTwgCwIuM9GQ2kvVotzYJMXTBZg==
-
-ufo@^0.8.6:
-  version "0.8.6"
-  resolved "https://registry.yarnpkg.com/ufo/-/ufo-0.8.6.tgz#c0ec89bc0e0c9fa59a683680feb0f28b55ec323b"
-  integrity sha512-fk6CmUgwKCfX79EzcDQQpSCMxrHstvbLswFChHS0Vump+kFkw7nJBfTZoC1j0bOGoY9I7R3n2DGek5ajbcYnOw==
 
 ufo@^1.0.1:
   version "1.0.1"
