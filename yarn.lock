@@ -395,17 +395,17 @@ h3-typebox@0.6.0:
     ajv-formats "^2.1.1"
     h3 "^1.0.2"
 
-h3@1.5.0, h3@^1.0.2:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/h3/-/h3-1.5.0.tgz#667fce40383712da314200312d043e892c5002fc"
-  integrity sha512-M+T6P4iOB0ipkC/ZCdw2w8iTF7yY6phmkILOwlrtcPuVv+KW9BilOspYlvnblpKx1nnNl+3iBsZIvZ8pvKM8Nw==
+h3@1.6.2, h3@^1.0.2:
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/h3/-/h3-1.6.2.tgz#40177d886acf585a275098601d05cefd628238b7"
+  integrity sha512-1v/clj/qCzWbuiG+DbpViuOVO789sEYNjlwRjekkmyLGsezIJk30gazbnjcWvF8L/ffUdRz2SwxE5HNgNx+Yjg==
   dependencies:
     cookie-es "^0.5.0"
     defu "^6.1.2"
     destr "^1.2.2"
-    iron-webcrypto "^0.5.0"
+    iron-webcrypto "^0.6.0"
     radix3 "^1.0.0"
-    ufo "^1.1.0"
+    ufo "^1.1.1"
     uncrypto "^0.1.2"
 
 has-flag@^3.0.0:
@@ -478,10 +478,10 @@ ipaddr.js@^2.0.1:
   resolved "https://registry.yarnpkg.com/ipaddr.js/-/ipaddr.js-2.0.1.tgz#eca256a7a877e917aeb368b0a7497ddf42ef81c0"
   integrity sha512-1qTgH9NG+IIJ4yfKs2e6Pp1bZg8wbDbKHT21HrLIeYBTRLgMYKnMTPAuI3Lcs61nfx5h1xlXnbJtH1kX5/d/ng==
 
-iron-webcrypto@^0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/iron-webcrypto/-/iron-webcrypto-0.5.0.tgz#6028474b6de42bb3b5ea8d2222f5af791696ccf9"
-  integrity sha512-9m0tDUIo+GPwDYi1CNlAW3ToIFTS9y88lf41KsEwbBsL4PKNjhrNDGoA0WlB6WWaJ6pgp+FOP1+6ls0YftivyA==
+iron-webcrypto@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/iron-webcrypto/-/iron-webcrypto-0.6.0.tgz#3e597930b41363fc81a6ec415d25eb5000092144"
+  integrity sha512-WYgEQttulX/+JTv1BTJFYY3OsAb+ZnCuA53IjppZMyiRsVdGeEuZ/k4fJrg77Rzn0pp9/PgWtXUF+5HndDA5SQ==
 
 is-core-module@^2.8.1:
   version "2.8.1"
@@ -769,10 +769,10 @@ typescript@4.9.5:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.9.5.tgz#095979f9bcc0d09da324d58d03ce8f8374cbe65a"
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
-ufo@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/ufo/-/ufo-1.1.0.tgz#a5c4c814b0a98f7e0ca42c478688663fd3e3c037"
-  integrity sha512-LQc2s/ZDMaCN3QLpa+uzHUOQ7SdV0qgv3VBXOolQGXTaaZpIur6PwUclF5nN2hNkiTRcUugXd1zFOW3FLJ135Q==
+ufo@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/ufo/-/ufo-1.1.1.tgz#e70265e7152f3aba425bd013d150b2cdf4056d7c"
+  integrity sha512-MvlCc4GHrmZdAllBc0iUDowff36Q9Ndw/UzqmEKyrfSzokTd9ZCy1i+IIk5hrYKkjoYVQyNbrw7/F8XJ2rEwTg==
 
 uncrypto@^0.1.2:
   version "0.1.2"
