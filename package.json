@@ -26,7 +26,7 @@
 		"cheerio": "1.0.0-rc.12",
 		"escape-regexp": "0.0.1",
 		"got": "11.8.6",
-		"h3": "1.5.0",
+		"h3": "1.6.4",
 		"h3-typebox": "0.6.0",
 		"html-entities": "2.3.3",
 		"iconv-lite": "0.6.3",
