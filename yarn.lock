@@ -395,10 +395,10 @@ h3-typebox@0.6.0:
     ajv-formats "^2.1.1"
     h3 "^1.0.2"
 
-h3@1.6.5, h3@^1.0.2:
-  version "1.6.5"
-  resolved "https://registry.yarnpkg.com/h3/-/h3-1.6.5.tgz#0836ffb87aa4a557871e02bdcf6116f41f7240fc"
-  integrity sha512-A0r2LCDzeavSfcAbJpMwHXLcSN0H3FpEZtYigbz4IYun0fOE8r6vy3galwubAnmc6gXVob4261zXQsu3sZayzg==
+h3@1.6.6, h3@^1.0.2:
+  version "1.6.6"
+  resolved "https://registry.yarnpkg.com/h3/-/h3-1.6.6.tgz#f7da8517ae3bf906716975e38f2d3c24ab79a239"
+  integrity sha512-DWu2s11OuuO9suEkX99dXaJoxd1RgPXiM4iDmLdrhGV63GLoav13f3Kdd5/Rw7xNKzhzn2+F2dleQjG66SnMPQ==
   dependencies:
     cookie-es "^1.0.0"
     defu "^6.1.2"
