@@ -25,7 +25,7 @@
 	"dependencies": {
 		"cheerio": "1.0.0-rc.12",
 		"escape-regexp": "0.0.1",
-		"got": "11.8.6",
+		"got": "14.0.0",
 		"h3": "1.9.0",
 		"h3-typebox": "0.6.0",
 		"html-entities": "2.4.0",
