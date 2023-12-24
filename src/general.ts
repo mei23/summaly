@@ -10,55 +10,55 @@ export default async (url: URL, lang: string | null = null): Promise<SummalyEx> 
 	const $ = res.$;
 	const landingUrl = new URL(res.response.url);
 
-	const twitterCard = $('meta[property="twitter:card"]').attr('content');
+	const twitterCard =
+		$('meta[name="twitter:card"]').attr('content') ??
+		$('meta[property="twitter:card"]').attr('content');
 
-	let title =
-		$('meta[property="og:title"]').attr('content') ||
-		$('meta[property="twitter:title"]').attr('content') ||
-		$('title').text() ||
+	let title: string | null =
+		$('meta[name="twitter:title"]').attr('content') ??
+		$('meta[property="twitter:title"]').attr('content') ??
+		$('meta[property="og:title"]').attr('content') ??
+		$('title').text() ??
 		null;
-
-	if (title == null) {
-		throw 'no title';
-	}
-
 	title = decodeEntities(title, 300);
 
 	let image =
-		$('meta[property="og:image"]').attr('content') ||
-		$('meta[property="twitter:image"]').attr('content') ||
-		$('link[rel="image_src"]').attr('href') ||
-		$('link[rel="apple-touch-icon"]').attr('href') ||
-		$('link[rel="apple-touch-icon image_src"]').attr('href') ||
+		$('meta[name="twitter:image"]').attr('content') ??
+		$('meta[property="og:image"]').attr('content') ??
+		$('link[rel="image_src"]').attr('href') ??
+		$('link[rel="apple-touch-icon"]').attr('href') ??
+		$('link[rel="apple-touch-icon image_src"]').attr('href') ??
 		null;
 
 	image = image ?  new URL(image, landingUrl.href).href : null;
 
 	let playerUrl =
-		(twitterCard !== 'summary_large_image' && $('meta[property="twitter:player"]').attr('content')) ||
-		(twitterCard !== 'summary_large_image' && $('meta[name="twitter:player"]').attr('content')) ||
-		$('meta[property="og:video"]').attr('content') ||
-		$('meta[property="og:video:secure_url"]').attr('content') ||
-		$('meta[property="og:video:url"]').attr('content') ||
+		(twitterCard !== 'summary_large_image' && $('meta[name="twitter:player"]').attr('content')) ??
+		(twitterCard !== 'summary_large_image' && $('meta[property="twitter:player"]').attr('content')) ??
+		$('meta[property="og:video"]').attr('content') ??
+		$('meta[property="og:video:secure_url"]').attr('content') ??
+		$('meta[property="og:video:url"]').attr('content') ??
 		null;
+
 	playerUrl = playerUrl ? new URL(playerUrl, landingUrl.href).href : null;
 
 	const playerWidth = parseInt(
-		$('meta[property="twitter:player:width"]').attr('content') ||
-		$('meta[name="twitter:player:width"]').attr('content') ||
-		$('meta[property="og:video:width"]').attr('content') ||
+		$('meta[name="twitter:player:width"]').attr('content') ??
+		$('meta[property="twitter:player:width"]').attr('content') ??
+		$('meta[property="og:video:width"]').attr('content') ??
 		'');
 
 	const playerHeight = parseInt(
-		$('meta[property="twitter:player:height"]').attr('content') ||
-		$('meta[name="twitter:player:height"]').attr('content') ||
-		$('meta[property="og:video:height"]').attr('content') ||
+		$('meta[name="twitter:player:height"]').attr('content') ??
+		$('meta[property="twitter:player:height"]').attr('content') ??
+		$('meta[property="og:video:height"]').attr('content') ??
 		'');
 
 	let description =
-		$('meta[property="og:description"]').attr('content') ||
-		$('meta[property="twitter:description"]').attr('content') ||
-		$('meta[name="description"]').attr('content') ||
+		$('meta[name="twitter:description"]').attr('content') ??
+		$('meta[property="twitter:description"]').attr('content') ??
+		$('meta[property="og:description"]').attr('content') ??
+		$('meta[name="description"]').attr('content') ??
 		null;
 
 	description = decodeEntities(description, 300);
