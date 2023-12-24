@@ -68,7 +68,7 @@ export default async (url: URL, lang: string | null = null): Promise<SummalyEx> 
 		description = null;
 	}
 
-	let siteName =
+	let siteName: string | null =
 		$('meta[property="og:site_name"]').attr('content') ??
 		$('meta[name="application-name"]').attr('content') ??
 		landingUrl.hostname ??
