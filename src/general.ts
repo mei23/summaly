@@ -69,16 +69,16 @@ export default async (url: URL, lang: string | null = null): Promise<SummalyEx> 
 	}
 
 	let siteName =
-		$('meta[property="og:site_name"]').attr('content') ||
-		$('meta[name="application-name"]').attr('content') ||
-		landingUrl.hostname ||
+		$('meta[property="og:site_name"]').attr('content') ??
+		$('meta[name="application-name"]').attr('content') ??
+		landingUrl.hostname ??
 		null;
 
 	siteName = decodeEntities(siteName, 300);
 
 	const favicon =
-		$('link[rel="shortcut icon"]').attr('href') ||
-		$('link[rel="icon"]').attr('href') ||
+		$('link[rel="shortcut icon"]').attr('href') ??
+		$('link[rel="icon"]').attr('href') ??
 		'/favicon.ico';
 
 	const icon = favicon ? new URL(favicon, landingUrl.href).href : null;

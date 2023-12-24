@@ -13,7 +13,7 @@ const cleanup_title_1 = require("./utils/cleanup-title");
 const decode_entities_1 = require("./utils/decode-entities");
 const got_1 = require("./utils/got");
 exports.default = (url, lang = null) => __awaiter(void 0, void 0, void 0, function* () {
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y, _z, _0, _1;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y, _z, _0, _1, _2, _3, _4, _5, _6;
     if (lang && !lang.match(/^[\w-]+(\s*,\s*[\w-]+)*$/))
         lang = null;
     const res = yield (0, got_1.scpaping)(url.href, { lang: lang || undefined });
@@ -33,14 +33,9 @@ exports.default = (url, lang = null) => __awaiter(void 0, void 0, void 0, functi
     if (title === description) {
         description = null;
     }
-    let siteName = $('meta[property="og:site_name"]').attr('content') ||
-        $('meta[name="application-name"]').attr('content') ||
-        landingUrl.hostname ||
-        null;
+    let siteName = (_4 = (_3 = (_2 = $('meta[property="og:site_name"]').attr('content')) !== null && _2 !== void 0 ? _2 : $('meta[name="application-name"]').attr('content')) !== null && _3 !== void 0 ? _3 : landingUrl.hostname) !== null && _4 !== void 0 ? _4 : null;
     siteName = (0, decode_entities_1.decodeEntities)(siteName, 300);
-    const favicon = $('link[rel="shortcut icon"]').attr('href') ||
-        $('link[rel="icon"]').attr('href') ||
-        '/favicon.ico';
+    const favicon = (_6 = (_5 = $('link[rel="shortcut icon"]').attr('href')) !== null && _5 !== void 0 ? _5 : $('link[rel="icon"]').attr('href')) !== null && _6 !== void 0 ? _6 : '/favicon.ico';
     const icon = favicon ? new URL(favicon, landingUrl.href).href : null;
     const sensitive = $('.tweet').attr('data-possibly-sensitive') === 'true';
     // Clean up the title
