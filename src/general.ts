@@ -24,6 +24,7 @@ export default async (url: URL, lang: string | null = null): Promise<SummalyEx> 
 
 	let image =
 		$('meta[name="twitter:image"]').attr('content') ??
+		$('meta[property="twitter:image"]').attr('content') ??
 		$('meta[property="og:image"]').attr('content') ??
 		$('link[rel="image_src"]').attr('href') ??
 		$('link[rel="apple-touch-icon"]').attr('href') ??
