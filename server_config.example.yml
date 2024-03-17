@@ -7,3 +7,6 @@ allowedPlugins:
 #  - iwara
 #  - komiflo
 #  - dlsite
+
+# Range付きリクエストを出すか
+useRange: false

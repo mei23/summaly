@@ -22,15 +22,16 @@ const NOT_BOT_UA = [
 	'www.sankei.com',
 ];
 
-export async function scpaping(url: string, opts?: { lang?: string; }) {
+export async function scpaping(url: string, opts?: { lang?: string; useRange?: boolean }) {
 	const u = new URL(url);
 
 	const headers = {
 		'accept': 'text/html, application/xhtml+xml',
 		'user-agent': NOT_BOT_UA.includes(u.hostname) ? browserUA : BOT_UA,
-	};
+	} as Record<string, string>;
 
 	if (opts?.lang) headers['accept-language'] = opts.lang;
+	if (opts?.useRange) headers['range'] = `bytes=0-${MAX_RESPONSE_SIZE - 1}`;
 
 	const response = await getResponse({
 		url,
@@ -96,7 +97,8 @@ async function getResponse(args: { url: string, method: 'GET' | 'POST', body?: s
 
 	req.on('redirect', (res, opts) => {
 		if (!checkAllowedUrl(opts.url)) {
-			req.cancel(`Invalid url: ${opts.url}`);
+			console.warn(`Invalid url: ${opts.url}`);
+			req.cancel();
 		}
 	});
 
@@ -108,9 +110,26 @@ async function receiveResponce<T>(args: { req: Got.CancelableRequest<Got.Respons
 	const maxSize = MAX_RESPONSE_SIZE;
 
 	req.on('response', (res: Got.Response) => {
+		if (res.statusCode === 206) {
+			const m = (res.headers['content-range'] ?? '').match(new RegExp(/^bytes\s+0-(\d+)\/(\d+)$/, 'i'));	// bytes 0-47254/47255
+
+			if (m == null) {
+				console.warn(`Invalid content-range '${res.headers['content-range']}'`);
+				req.cancel();
+				return;
+			}
+
+			if (Number(m[1]) + 1 !== Number(m[2])) {
+				console.warn(`maxSize exceeded by content-range (${m[2]} > ${maxSize}) on response`);
+				req.cancel();
+				return;
+			}
+		}
+
 		// Check html
 		if (args.typeFilter && !res.headers['content-type']?.match(args.typeFilter)) {
-			req.cancel(`Rejected by type filter ${res.headers['content-type']}`);
+			console.warn(`Rejected by type filter ${res.headers['content-type']}`);
+			req.cancel();
 			return;
 		}
 
@@ -119,7 +138,9 @@ async function receiveResponce<T>(args: { req: Got.CancelableRequest<Got.Respons
 		if (contentLength != null) {
 			const size = Number(contentLength);
 			if (size > maxSize) {
-				req.cancel(`maxSize exceeded (${size} > ${maxSize}) on response`);
+				console.warn(`maxSize exceeded by content-length (${size} > ${maxSize}) on response`);
+				req.cancel();
+				return;
 			}
 		}
 	});
@@ -127,7 +148,9 @@ async function receiveResponce<T>(args: { req: Got.CancelableRequest<Got.Respons
 	// 受信中のデータでサイズチェック
 	req.on('downloadProgress', (progress: Got.Progress) => {
 		if (progress.transferred > maxSize && progress.percent !== 1) {
-			req.cancel(`maxSize exceeded (${progress.transferred} > ${maxSize}) on response`);
+			console.warn(`maxSize exceeded in transfer (${progress.transferred} > ${maxSize}) on response`);
+			req.cancel();
+			return;
 		}
 	});
 

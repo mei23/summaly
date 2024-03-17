@@ -31,7 +31,6 @@ class Summary {
         return __awaiter(this, void 0, void 0, function* () {
             const opts = Object.assign({
                 lang: null,
-                followRedirects: true,
             }, requestOptions);
             const _url = new URL(url);
             // pre
@@ -50,7 +49,7 @@ class Summary {
                 return summary;
             }
             else {
-                let summary = yield (0, general_1.default)(_url, opts.lang);
+                let summary = yield (0, general_1.default)(_url, opts.lang, opts.useRange);
                 if (summary == null)
                     throw 'failed summarize';
                 const landingUrl = summary.url;

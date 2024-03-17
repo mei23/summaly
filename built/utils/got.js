@@ -39,6 +39,8 @@ function scpaping(url, opts) {
         };
         if (opts === null || opts === void 0 ? void 0 : opts.lang)
             headers['accept-language'] = opts.lang;
+        if (opts === null || opts === void 0 ? void 0 : opts.useRange)
+            headers['range'] = `bytes=0-${MAX_RESPONSE_SIZE - 1}`;
         const response = yield getResponse({
             url,
             method: 'GET',
@@ -100,7 +102,8 @@ function getResponse(args) {
         });
         req.on('redirect', (res, opts) => {
             if (!(0, check_allowed_url_1.checkAllowedUrl)(opts.url)) {
-                req.cancel(`Invalid url: ${opts.url}`);
+                console.warn(`Invalid url: ${opts.url}`);
+                req.cancel();
             }
         });
         return yield receiveResponce({ req, typeFilter: args.typeFilter });
@@ -111,10 +114,24 @@ function receiveResponce(args) {
         const req = args.req;
         const maxSize = MAX_RESPONSE_SIZE;
         req.on('response', (res) => {
-            var _a;
+            var _a, _b;
+            if (res.statusCode === 206) {
+                const m = ((_a = res.headers['content-range']) !== null && _a !== void 0 ? _a : '').match(new RegExp(/^bytes\s+0-(\d+)\/(\d+)$/, 'i')); // bytes 0-47254/47255
+                if (m == null) {
+                    console.warn(`Invalid content-range '${res.headers['content-range']}'`);
+                    req.cancel();
+                    return;
+                }
+                if (Number(m[1]) + 1 !== Number(m[2])) {
+                    console.warn(`maxSize exceeded by content-range (${m[2]} > ${maxSize}) on response`);
+                    req.cancel();
+                    return;
+                }
+            }
             // Check html
-            if (args.typeFilter && !((_a = res.headers['content-type']) === null || _a === void 0 ? void 0 : _a.match(args.typeFilter))) {
-                req.cancel(`Rejected by type filter ${res.headers['content-type']}`);
+            if (args.typeFilter && !((_b = res.headers['content-type']) === null || _b === void 0 ? void 0 : _b.match(args.typeFilter))) {
+                console.warn(`Rejected by type filter ${res.headers['content-type']}`);
+                req.cancel();
                 return;
             }
             // 応答ヘッダでサイズチェック
@@ -122,14 +139,18 @@ function receiveResponce(args) {
             if (contentLength != null) {
                 const size = Number(contentLength);
                 if (size > maxSize) {
-                    req.cancel(`maxSize exceeded (${size} > ${maxSize}) on response`);
+                    console.warn(`maxSize exceeded by content-length (${size} > ${maxSize}) on response`);
+                    req.cancel();
+                    return;
                 }
             }
         });
         // 受信中のデータでサイズチェック
         req.on('downloadProgress', (progress) => {
             if (progress.transferred > maxSize && progress.percent !== 1) {
-                req.cancel(`maxSize exceeded (${progress.transferred} > ${maxSize}) on response`);
+                console.warn(`maxSize exceeded in transfer (${progress.transferred} > ${maxSize}) on response`);
+                req.cancel();
+                return;
             }
         });
         // 応答取得 with ステータスコードエラーの整形

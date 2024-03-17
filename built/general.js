@@ -13,11 +13,11 @@ const cleanup_title_1 = require("./utils/cleanup-title");
 const decode_entities_1 = require("./utils/decode-entities");
 const got_1 = require("./utils/got");
 const cleanup_url_1 = require("./utils/cleanup-url");
-exports.default = (url, lang = null) => __awaiter(void 0, void 0, void 0, function* () {
+exports.default = (url, lang = null, useRange = false) => __awaiter(void 0, void 0, void 0, function* () {
     var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y, _z, _0, _1, _2, _3, _4, _5, _6;
     if (lang && !lang.match(/^[\w-]+(\s*,\s*[\w-]+)*$/))
         lang = null;
-    const res = yield (0, got_1.scpaping)(url.href, { lang: lang || undefined });
+    const res = yield (0, got_1.scpaping)(url.href, { lang: lang || undefined, useRange });
     const $ = res.$;
     const landingUrl = new URL(res.response.url);
     const twitterCard = (_a = $('meta[name="twitter:card"]').attr('content')) !== null && _a !== void 0 ? _a : $('meta[property="twitter:card"]').attr('content');

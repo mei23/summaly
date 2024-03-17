@@ -14,7 +14,6 @@ const load_config_1 = require("./load-config");
 const h3 = require("h3");
 const http_1 = require("http");
 const h3_typebox_1 = require("h3-typebox");
-const status_error_1 = require("../utils/status-error");
 const config = (0, load_config_1.default)();
 const summaryInstance = new __1.Summary({
     allowedPlugins: config.allowedPlugins
@@ -30,19 +29,14 @@ router.get('/url', h3.eventHandler((event) => __awaiter(void 0, void 0, void 0, 
     try {
         const summary = yield summaryInstance.summary(query.url, {
             lang: query.lang,
-            followRedirects: false,
+            useRange: config.useRange,
         });
         h3.setResponseHeader(event, 'Cache-Control', 'public, max-age=604800');
         return summary;
     }
     catch (e) {
         console.log(`summaly error: ${e} ${query.url}`);
-        if (e instanceof status_error_1.StatusError && e.isPermanentError) {
-            h3.setResponseStatus(event, 400);
-        }
-        else {
-            h3.setResponseStatus(event, 500);
-        }
+        h3.setResponseStatus(event, 422);
         h3.setResponseHeader(event, 'Content-Type', 'text/plain');
         h3.setResponseHeader(event, 'Cache-Control', 'public, max-age=3600');
         return 'error';

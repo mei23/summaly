@@ -8,9 +8,9 @@ type RequestOptions = {
      */
     lang?: string | null;
     /**
-     * Whether follow redirects
+     * Use range for the request
      */
-    followRedirects?: boolean;
+    useRange?: boolean;
 };
 export declare class Summary {
     private plugins;

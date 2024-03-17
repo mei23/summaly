@@ -25,18 +25,14 @@ router.get('/url', h3.eventHandler(async event => {
 	try {
 		const summary = await summaryInstance.summary(query.url, {
 			lang: query.lang,
-			followRedirects: false,
+			useRange: config.useRange,
 		});
 
 		h3.setResponseHeader(event, 'Cache-Control', 'public, max-age=604800');
 		return summary;
 	} catch (e) {
 		console.log(`summaly error: ${e} ${query.url}`);
-		if (e instanceof StatusError && e.isPermanentError) {
-			h3.setResponseStatus(event, 400);
-		} else {
-			h3.setResponseStatus(event, 500);
-		}
+		h3.setResponseStatus(event, 422);
 		h3.setResponseHeader(event, 'Content-Type', 'text/plain');
 		h3.setResponseHeader(event, 'Cache-Control', 'public, max-age=3600');
 		return 'error';

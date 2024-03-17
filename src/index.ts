@@ -15,9 +15,9 @@ type RequestOptions = {
 	lang?: string | null;
 
 	/**
-	 * Whether follow redirects
+	 * Use range for the request
 	 */
-	followRedirects?: boolean;
+	useRange?: boolean;
 };
 
 export class Summary {
@@ -37,7 +37,6 @@ export class Summary {
 	public async summary(url: string, requestOptions?: RequestOptions): Promise<Summaly> {
 		const opts = Object.assign({
 			lang: null,
-			followRedirects: true,
 		}, requestOptions);
 
 		const _url = new URL(url);
@@ -56,7 +55,7 @@ export class Summary {
 
 			return summary;
 		} else {
-			let summary = await general(_url, opts.lang);
+			let summary = await general(_url, opts.lang, opts.useRange);
 			if (summary == null) throw 'failed summarize';
 			const landingUrl = summary.url;
 

@@ -2,6 +2,7 @@ import * as Got from 'got';
 import * as cheerio from 'cheerio';
 export declare function scpaping(url: string, opts?: {
     lang?: string;
+    useRange?: boolean;
 }): Promise<{
     body: string;
     $: cheerio.CheerioAPI;

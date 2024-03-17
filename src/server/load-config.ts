@@ -3,6 +3,7 @@ import * as yaml from 'js-yaml';
 
 type Config = {
 	allowedPlugins?: string[];
+	useRange?: boolean;
 };
 
 export default function () {

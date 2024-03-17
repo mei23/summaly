@@ -4,10 +4,10 @@ import { SummalyEx } from './summaly';
 import { scpaping } from './utils/got';
 import { cleanupUrl } from './utils/cleanup-url';
 
-export default async (url: URL, lang: string | null = null): Promise<SummalyEx> => {
+export default async (url: URL, lang: string | null = null, useRange = false): Promise<SummalyEx> => {
 	if (lang && !lang.match(/^[\w-]+(\s*,\s*[\w-]+)*$/)) lang = null;
 
-	const res = await scpaping(url.href, { lang: lang || undefined });
+	const res = await scpaping(url.href, { lang: lang || undefined, useRange });
 	const $ = res.$;
 	const landingUrl = new URL(res.response.url);
 
