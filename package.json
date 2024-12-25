@@ -24,6 +24,7 @@
 	},
 	"dependencies": {
 		"cheerio": "1.0.0",
+		"encoding-japanese": "2.2.0",
 		"escape-regexp": "0.0.1",
 		"got": "11.8.6",
 		"h3": "1.13.0",

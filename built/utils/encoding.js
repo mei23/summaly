@@ -4,6 +4,7 @@ exports.detectEncoding = detectEncoding;
 exports.toUtf8 = toUtf8;
 const iconv = require("iconv-lite");
 const jschardet = require("jschardet");
+const Encoding = require('encoding-japanese');
 const regCharset = new RegExp(/charset\s*=\s*["']?([\w-]+)/, 'i');
 /**
  * Detect HTML encoding
@@ -30,9 +31,14 @@ function detectEncoding(body) {
     return 'utf-8';
 }
 function toUtf8(body, encoding) {
+    if (encoding === 'ISO-2022-JP') {
+        return Encoding.codeToString(Encoding.convert(body, 'UNICODE', encoding));
+    }
     return iconv.decode(body, encoding);
 }
 function toEncoding(candicate) {
+    if (candicate.toUpperCase() === 'ISO-2022-JP')
+        return 'ISO-2022-JP';
     if (iconv.encodingExists(candicate)) {
         if (['shift_jis', 'shift-jis', 'windows-31j', 'x-sjis'].includes(candicate.toLowerCase()))
             return 'cp932';

@@ -1,5 +1,6 @@
 import * as iconv from 'iconv-lite';
 import * as jschardet from 'jschardet';
+const Encoding = require('encoding-japanese');
 
 const regCharset = new RegExp(/charset\s*=\s*["']?([\w-]+)/, 'i');
 
@@ -29,10 +30,16 @@ export function detectEncoding(body: Buffer): string {
 }
 
 export function toUtf8(body: Buffer, encoding: string): string {
+	if (encoding === 'ISO-2022-JP') {
+		return Encoding.codeToString(Encoding.convert(body, 'UNICODE', encoding))
+	}
+
 	return iconv.decode(body, encoding);
 }
 
 function toEncoding(candicate: string): string | null {
+	if (candicate.toUpperCase() === 'ISO-2022-JP') return 'ISO-2022-JP';
+
 	if (iconv.encodingExists(candicate)) {
 		if (['shift_jis', 'shift-jis', 'windows-31j', 'x-sjis'].includes(candicate.toLowerCase())) return 'cp932';
 		return candicate;
