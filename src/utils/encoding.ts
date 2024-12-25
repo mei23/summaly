@@ -1,5 +1,8 @@
 import * as iconv from 'iconv-lite';
+//var Iconv  = require('iconv').Iconv;
+import { Iconv } from 'iconv';
 import * as jschardet from 'jschardet';
+const Encoding = require('encoding-japanese');
 
 const regCharset = new RegExp(/charset\s*=\s*["']?([\w-]+)/, 'i');
 
@@ -32,7 +35,19 @@ export function toUtf8(body: Buffer, encoding: string): string {
 	return iconv.decode(body, encoding);
 }
 
+export function toUtf8i(body: Buffer, encoding: string): string {
+	const i = new Iconv(encoding, 'UTF-8');
+	return i.convert(body).toString();
+}
+
+export function toUtf8j(body: Buffer, encoding: string): string {
+	return Encoding.codeToString(Encoding.convert(body, 'UNICODE', encoding))
+}
+
+
 function toEncoding(candicate: string): string | null {
+	if (candicate.toUpperCase() === 'ISO-2022-JP') return 'ISO-2022-JP';
+
 	if (iconv.encodingExists(candicate)) {
 		if (['shift_jis', 'shift-jis', 'windows-31j', 'x-sjis'].includes(candicate.toLowerCase())) return 'cp932';
 		return candicate;
