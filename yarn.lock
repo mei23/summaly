@@ -234,10 +234,10 @@ concat-map@0.0.1:
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
   integrity sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=
 
-cookie-es@^1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/cookie-es/-/cookie-es-1.2.2.tgz#18ceef9eb513cac1cb6c14bcbf8bdb2679b34821"
-  integrity sha512-+W7VmiVINB+ywl1HGXJXmrqkOhpKrIiVZV6tQuV54ZyQC7MMuBt81Vc336GMLoHBq5hV/F9eXgt5Mnx0Rha5Fg==
+cookie-es@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/cookie-es/-/cookie-es-1.2.3.tgz#06ca3c5f5f3531684a2059666a361173f74a89c8"
+  integrity sha512-lXVyvUvrNXblMqzIRrxHb57UUVmqsSWlxqt3XIjCkUP0wDAf6uicO6KMbEgYrMNtEvWgWHwe42CKxPu9MYAnWw==
 
 crossws@^0.3.5:
   version "0.3.5"
@@ -281,10 +281,10 @@ defer-to-connect@^2.0.0:
   resolved "https://registry.yarnpkg.com/defer-to-connect/-/defer-to-connect-2.0.1.tgz#8016bdb4143e4632b77a3449c6236277de520587"
   integrity sha512-4tvttepXG1VaYGrRibk5EwJd1t4udunSOVMdLSAL6mId1ix438oPwPZMALY41FCijukO1L0twNcGsdzS7dHgDg==
 
-defu@^6.1.4:
-  version "6.1.4"
-  resolved "https://registry.yarnpkg.com/defu/-/defu-6.1.4.tgz#4e0c9cf9ff68fe5f3d7f2765cc1a012dfdcb0479"
-  integrity sha512-mEQCMmwJu317oSz8CwdIOdwf3xMif1ttiM8LTufzc3g6kR+9Pe236twL8j3IYT1F7GfRgGcW6MWxzZjLIkuHIg==
+defu@^6.1.6:
+  version "6.1.6"
+  resolved "https://registry.yarnpkg.com/defu/-/defu-6.1.6.tgz#20970cc978d9be90ba6c792184a89c92db656e53"
+  integrity sha512-f8mefEW4WIVg4LckePx3mALjQSPQgFlg9U8yaPdlsbdYcHQyj9n2zL2LJEA52smeYxOvmd/nB7TpMtHGMTHcug==
 
 destr@^2.0.5:
   version "2.0.5"
@@ -438,14 +438,14 @@ h3-typebox@0.6.0:
     ajv-formats "^2.1.1"
     h3 "^1.0.2"
 
-h3@1.15.5, h3@^1.0.2:
-  version "1.15.5"
-  resolved "https://registry.yarnpkg.com/h3/-/h3-1.15.5.tgz#e2f28d4a66a249973bb050eaddb06b9ab55506f8"
-  integrity sha512-xEyq3rSl+dhGX2Lm0+eFQIAzlDN6Fs0EcC4f7BNUmzaRX/PTzeuM+Tr2lHB8FoXggsQIeXLj8EDVgs5ywxyxmg==
+h3@1.15.11, h3@^1.0.2:
+  version "1.15.11"
+  resolved "https://registry.yarnpkg.com/h3/-/h3-1.15.11.tgz#831179fc6b4bc06de8ad1077e7a5c7d63b796577"
+  integrity sha512-L3THSe2MPeBwgIZVSH5zLdBBU90TOxarvhK9d04IDY2AmVS8j2Jz2LIWtwsGOU3lu2I5jCN7FNvVfY2+XyF+mg==
   dependencies:
-    cookie-es "^1.2.2"
+    cookie-es "^1.2.3"
     crossws "^0.3.5"
-    defu "^6.1.4"
+    defu "^6.1.6"
     destr "^2.0.5"
     iron-webcrypto "^1.2.1"
     node-mock-http "^1.0.4"
